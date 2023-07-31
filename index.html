@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>In Memory of the Blue Bird - A Tribute</title>
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="twitter-smol.png">
+    <link rel="manifest" href="assets/manifest.json">
+    <link rel="icon" href="assets/twitter-smol.png">
 
     <script>
       if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("service-worker.js")
+          navigator.serviceWorker.register("assets/service-worker.js")
               .then((registration) => {
                   console.log("Service Worker registered:", registration);
               })
@@ -66,7 +66,7 @@
 </head>
 <body>
   <h1>In Memory of the Blue Bird</h1>
-  <img class="blue-bird-image" src="twitter-smol.png" alt="Blue Bird">
+  <img class="blue-bird-image" src="assets/twitter-smol.png" alt="Blue Bird">
   <p>
       Today, we gather here to pay tribute to a special little soul, the Blue Bird, whose vibrant presence brought joy and color to our lives. With its azure plumage and melodious songs, it touched our hearts and filled our world with happiness.
   </p>
