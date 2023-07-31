@@ -1,9 +1,9 @@
 {
-  "name": "My Twitter PWA",
-  "short_name": "Twitter PWA",
+  "name": "Twitter",
+  "short_name": "Twitter",
   "icons": [
       {
-          "src": "twitter-icon.png",
+          "src": "twitter.svg",
           "sizes": "512x512",
           "type": "image/png"
       }
