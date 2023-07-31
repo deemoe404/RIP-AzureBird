@@ -3,7 +3,7 @@
   "short_name": "Twitter",
   "icons": [
       {
-          "src": "twitter.png",
+          "src": "twitter-smol.png",
           "sizes": "512x512",
           "type": "image/png"
       }
