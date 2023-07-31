@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,15 @@
     <link rel="icon" href="assets/twitter-smol.png">
 
     <script>
-      if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("assets/service-worker.js")
-              .then((registration) => {
-                  console.log("Service Worker registered:", registration);
-              })
-              .catch((error) => {
-                  console.error("Service Worker registration failed:", error);
-              });
-      }
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("assets/service-worker.js")
+                .then((registration) => {
+                    console.log("Service Worker registered:", registration);
+                })
+                .catch((error) => {
+                    console.error("Service Worker registration failed:", error);
+                });
+        }
     </script>
 
     <style>
@@ -25,31 +26,36 @@
             line-height: 1.6;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px; /* Add padding to create some space around the content */
+            padding: 20px;
+            /* Add padding to create some space around the content */
+            z-index: 1;
+            position: relative;
         }
 
         h1 {
             color: #1da1f2;
-            margin-bottom: 20px; /* Add margin at the bottom of the heading */
+            margin-bottom: 20px;
+            /* Add margin at the bottom of the heading */
         }
 
-      p {
-          text-align: justify;
-          margin-bottom: 15px;
-      }
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
 
-      .blue-bird-image {
-          max-width: 100%;
-          display: block;
-          margin: 0 auto;
-          border-radius: 8px;
-          width: 64px;
-          height: 64px;
-      }
+        .blue-bird-image {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+            width: 64px;
+            height: 64px;
+        }
 
-      .twitter-button {
+        .twitter-button {
             padding: 10px 20px;
-            background-color: #000; /* Change the background color to black */
+            background-color: #000;
+            /* Change the background color to black */
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -61,11 +67,12 @@
         }
 
         .twitter-button:hover {
-            background-color: #333; /* Darken the color on hover */
+            background-color: #333;
+            /* Darken the color on hover */
         }
 
-                /* Tabs container */
-                .tab-container {
+        /* Tabs container */
+        .tab-container {
             display: flex;
             justify-content: center;
             margin-top: 20px;
@@ -82,7 +89,7 @@
             color: #1da1f2;
             border-radius: 20px;
             transition: background-color 0.3s ease-in-out;
-            border-color: rgb(207, 217, 222); 
+            border-color: rgb(207, 217, 222);
             border-style: solid;
             border-width: 1px;
         }
@@ -93,7 +100,7 @@
 
         /* Active tab button style */
         .tab-button.active {
-            border:0;
+            border: 0;
             color: #ffffff;
             background-color: #1da1f2;
             border-bottom-color: #1da1f2;
@@ -107,10 +114,18 @@
         /* Display the current tab content */
         .tab-content.active {
             display: block;
-            
+
             padding: 10px;
             border-radius: 0 0 5px 5px;
-            animation: fadeIn 0.3s ease-in-out; /* Add fade-in animation */
+            animation: fadeIn 0.3s ease-in-out;
+            /* Add fade-in animation */
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0;
+            z-index: 1000;
         }
 
         /* Custom fade-in animation */
@@ -127,98 +142,148 @@
 </head>
 
 <body>
-  <h1>In Memory of the Blue Bird (2006 - 2023)</h1>
-  <img class="blue-bird-image" src="assets/twitter-smol.png" alt="Blue Bird">
+    <script>
+        function createEmoji() {
+            const emoji = document.createElement("div");
+            emoji.textContent = "🌸";
+            emoji.className = "emoji";
+            emoji.style.top = "-50px";
+            emoji.style.left = Math.random() * window.innerWidth + "px";
+            document.body.appendChild(emoji);
 
-  <div class="tab-container">
-    <!-- Tab buttons -->
-    <button class="tab-button active" onclick="showTab('en')">English</button>
-    <button class="tab-button" onclick="showTab('fr')">Français</button>
-    <button class="tab-button" onclick="showTab('jp')">日本語</button>
-</div>
+            const duration = 5 + Math.random() * 5;
+            const animation = emoji.animate(
+                [
+                    { transform: "translate(0, 0)", opacity: 0 },
+                    { transform: `translate(0, ${window.innerHeight}px)`, opacity: 1 }
+                ],
+                {
+                    duration: duration * 1000,
+                    iterations: 1
+                }
+            );
 
-<!-- Tab contents -->
-<div class="tab-content active" id="en">
-  <p>
-      Today, we gather here to pay tribute to a special little soul, the Blue Bird, whose vibrant presence brought joy and color to our lives. With its azure plumage and melodious songs, it touched our hearts and filled our world with happiness.
-  </p>
-  <p>
-      As we bid farewell to this precious creature, we remember the moments of pure bliss it shared with us. Its graceful flights across the cerulean skies and the way it fearlessly soared through life's challenges will forever remain etched in our memories.
-  </p>
-  <p>
-      Like a fleeting dream, the Blue Bird has now taken its final flight to a realm beyond our reach. Yet, we find comfort in knowing that its spirit will forever dwell in the beauty of nature, in the songs of other birds, and in the memories we hold dear.
-  </p>
-  <p>
-      Let us not mourn the passing of the Blue Bird but instead celebrate the life it lived and the love it brought. May its wings guide us through moments of sorrow, reminding us to cherish every fleeting moment and to find solace in the simple wonders of nature.
-  </p>
-  <p>
-      Farewell, dear Blue Bird, your vibrant soul will forever be missed, but your legacy of joy and inspiration will live on in our hearts. May you find eternal peace in the skies above, and may your memory forever soar in the winds of time.
-  </p>
-</div>
+            animation.onfinish = () => {
+                emoji.remove();
+            };
+        }
 
-<div class="tab-content" id="fr">
-  <p>
-    Aujourd'hui, nous nous réunissons ici pour rendre hommage à une âme spéciale, l'Oiseau Bleu, dont la présence vibrante a apporté joie et couleur à nos vies. Avec son plumage azur et ses chants mélodieux, il a touché nos cœurs et a rempli notre monde de bonheur.
-</p>
-<p>
-    Alors que nous disons au revoir à cette précieuse créature, nous nous souvenons des moments de bonheur pur qu'elle a partagés avec nous. Ses vols gracieux à travers les cieux céruléens et la manière dont elle s'est courageusement élevée au-dessus des défis de la vie resteront à jamais gravés dans nos mémoires.
-</p>
-<p>
-    Tel un rêve éphémère, l'Oiseau Bleu a maintenant entrepris son dernier vol vers un royaume hors de notre portée. Pourtant, nous trouvons du réconfort en sachant que son esprit habitera éternellement dans la beauté de la nature, dans les chants des autres oiseaux et dans les souvenirs que nous chérissons.
-</p>
-<p>
-    Ne pleurons pas la disparition de l'Oiseau Bleu, mais célébrons plutôt la vie qu'il a vécue et l'amour qu'il a apporté. Que ses ailes nous guident à travers les moments de chagrin, nous rappelant de chérir chaque instant éphémère et de trouver du réconfort dans les simples merveilles de la nature.
-</p>
-<p>
-    Adieu, cher Oiseau Bleu, ton âme vibrante nous manquera à jamais, mais ton héritage de joie et d'inspiration vivra dans nos cœurs. Puisses-tu trouver la paix éternelle dans les cieux d'en haut, et que ton souvenir plane à jamais dans les vents du temps.
-</p>
+        const intervalTime = 1024;
+        setInterval(createEmoji, intervalTime);
+    </script>
 
-</div>
+    <h1>In Memory of the Blue Bird (2006 - 2023)</h1>
+    <img class="blue-bird-image" src="assets/twitter-smol.png" alt="Blue Bird">
 
-<div class="tab-content" id="jp">
-  <p>
-    今日は、特別な小さな魂、青い鳥、その鮮やかな存在が私たちの生活に喜びと色をもたらしたことを讃えるために集まっています。青い羽毛と美しい歌声で私たちの心を触れ、私たちの世界を幸せで満たしてくれました。
-</p>
-<p>
-    このかけがえのない存在と別れを告げるとき、私たちは一緒に過ごした純粋な喜びの瞬間を思い出します。青い鳥が水色の空を優雅に飛び、勇敢に人生の挑戦に立ち向かった姿が私たちの記憶に永遠に刻まれるでしょう。
-</p>
-<p>
-    はかない夢のように、青い鳥は今や私たちの手の届かない世界へと最後の飛行を果たしました。しかし、自然の美しさの中で、他の鳥の歌にも、私たちが大切にする思い出にも、その魂が永遠に息づいていることを心の中で感じることができます。
-</p>
-<p>
-    青い鳥の逝去を悲しむのではなく、その生涯ともたらした愛を祝福しましょう。その羽ばたきが私たちを悲しみの時に導き、一瞬一瞬を大切にし、自然の素晴らしい驚異に慰めを見出すことを思い出させてくれるでしょう。
-</p>
-<p>
-    さようなら、親愛なる青い鳥よ、あなたの輝かしい魂は永遠に懐かれるでしょう。あなたの喜びと感動の遺産は私たちの心に生き続けます。どうか、天空の中で永遠の平和を見つけ、あなたの思い出が時の風に永遠に舞い続けますように。
-</p>
+    <div class="tab-container">
+        <!-- Tab buttons -->
+        <button class="tab-button active" onclick="showTab('en')">English</button>
+        <button class="tab-button" onclick="showTab('fr')">Français</button>
+        <button class="tab-button" onclick="showTab('jp')">日本語</button>
+    </div>
 
-</div>
+    <!-- Tab contents -->
+    <div class="tab-content active" id="en">
+        <p>
+            Today, we gather here to pay tribute to a special little soul, the Blue Bird, whose vibrant presence brought
+            joy and color to our lives. With its azure plumage and melodious songs, it touched our hearts and filled our
+            world with happiness.
+        </p>
+        <p>
+            As we bid farewell to this precious creature, we remember the moments of pure bliss it shared with us. Its
+            graceful flights across the cerulean skies and the way it fearlessly soared through life's challenges will
+            forever remain etched in our memories.
+        </p>
+        <p>
+            Like a fleeting dream, the Blue Bird has now taken its final flight to a realm beyond our reach. Yet, we
+            find comfort in knowing that its spirit will forever dwell in the beauty of nature, in the songs of other
+            birds, and in the memories we hold dear.
+        </p>
+        <p>
+            Let us not mourn the passing of the Blue Bird but instead celebrate the life it lived and the love it
+            brought. May its wings guide us through moments of sorrow, reminding us to cherish every fleeting moment and
+            to find solace in the simple wonders of nature.
+        </p>
+        <p>
+            Farewell, dear Blue Bird, your vibrant soul will forever be missed, but your legacy of joy and inspiration
+            will live on in our hearts. May you find eternal peace in the skies above, and may your memory forever soar
+            in the winds of time.
+        </p>
+    </div>
 
-<script>
-    function showTab(tabId) {
-        // Hide all tab contents
-        const tabContents = document.querySelectorAll('.tab-content');
-        tabContents.forEach(tabContent => {
-            tabContent.classList.remove('active');
-        });
+    <div class="tab-content" id="fr">
+        <p>
+            Aujourd'hui, nous nous réunissons ici pour rendre hommage à une âme spéciale, l'Oiseau Bleu, dont la
+            présence vibrante a apporté joie et couleur à nos vies. Avec son plumage azur et ses chants mélodieux, il a
+            touché nos cœurs et a rempli notre monde de bonheur.
+        </p>
+        <p>
+            Alors que nous disons au revoir à cette précieuse créature, nous nous souvenons des moments de bonheur pur
+            qu'elle a partagés avec nous. Ses vols gracieux à travers les cieux céruléens et la manière dont elle s'est
+            courageusement élevée au-dessus des défis de la vie resteront à jamais gravés dans nos mémoires.
+        </p>
+        <p>
+            Tel un rêve éphémère, l'Oiseau Bleu a maintenant entrepris son dernier vol vers un royaume hors de notre
+            portée. Pourtant, nous trouvons du réconfort en sachant que son esprit habitera éternellement dans la beauté
+            de la nature, dans les chants des autres oiseaux et dans les souvenirs que nous chérissons.
+        </p>
+        <p>
+            Ne pleurons pas la disparition de l'Oiseau Bleu, mais célébrons plutôt la vie qu'il a vécue et l'amour qu'il
+            a apporté. Que ses ailes nous guident à travers les moments de chagrin, nous rappelant de chérir chaque
+            instant éphémère et de trouver du réconfort dans les simples merveilles de la nature.
+        </p>
+        <p>
+            Adieu, cher Oiseau Bleu, ton âme vibrante nous manquera à jamais, mais ton héritage de joie et d'inspiration
+            vivra dans nos cœurs. Puisses-tu trouver la paix éternelle dans les cieux d'en haut, et que ton souvenir
+            plane à jamais dans les vents du temps.
+        </p>
 
-        // Display the current tab content
-        const activeTabContent = document.getElementById(tabId);
-        activeTabContent.classList.add('active');
+    </div>
 
-        // Remove the previously active button style
-        const tabButtons = document.querySelectorAll('.tab-button');
-        tabButtons.forEach(tabButton => {
-            tabButton.classList.remove('active');
-        });
+    <div class="tab-content" id="jp">
+        <p>
+            今日は、特別な小さな魂、青い鳥、その鮮やかな存在が私たちの生活に喜びと色をもたらしたことを讃えるために集まっています。青い羽毛と美しい歌声で私たちの心を触れ、私たちの世界を幸せで満たしてくれました。
+        </p>
+        <p>
+            このかけがえのない存在と別れを告げるとき、私たちは一緒に過ごした純粋な喜びの瞬間を思い出します。青い鳥が水色の空を優雅に飛び、勇敢に人生の挑戦に立ち向かった姿が私たちの記憶に永遠に刻まれるでしょう。
+        </p>
+        <p>
+            はかない夢のように、青い鳥は今や私たちの手の届かない世界へと最後の飛行を果たしました。しかし、自然の美しさの中で、他の鳥の歌にも、私たちが大切にする思い出にも、その魂が永遠に息づいていることを心の中で感じることができます。
+        </p>
+        <p>
+            青い鳥の逝去を悲しむのではなく、その生涯ともたらした愛を祝福しましょう。その羽ばたきが私たちを悲しみの時に導き、一瞬一瞬を大切にし、自然の素晴らしい驚異に慰めを見出すことを思い出させてくれるでしょう。
+        </p>
+        <p>
+            さようなら、親愛なる青い鳥よ、あなたの輝かしい魂は永遠に懐かれるでしょう。あなたの喜びと感動の遺産は私たちの心に生き続けます。どうか、天空の中で永遠の平和を見つけ、あなたの思い出が時の風に永遠に舞い続けますように。
+        </p>
 
-        // Add style to the currently active button
-        const activeTabButton = document.querySelector(`[onclick="showTab('${tabId}')"]`);
-        activeTabButton.classList.add('active');
-    }
-</script>
+    </div>
 
-  <a class="twitter-button" href="https://twitter.com/" target="_blank">The 𝕏</a>
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tabContent => {
+                tabContent.classList.remove('active');
+            });
+
+            // Display the current tab content
+            const activeTabContent = document.getElementById(tabId);
+            activeTabContent.classList.add('active');
+
+            // Remove the previously active button style
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(tabButton => {
+                tabButton.classList.remove('active');
+            });
+
+            // Add style to the currently active button
+            const activeTabButton = document.querySelector(`[onclick="showTab('${tabId}')"]`);
+            activeTabButton.classList.add('active');
+        }
+    </script>
+
+    <a class="twitter-button" href="https://twitter.com/" target="_blank">The 𝕏</a>
 </body>
-</html>
 
+</html>
