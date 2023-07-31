@@ -3,7 +3,7 @@
   "short_name": "Twitter",
   "icons": [
       {
-          "src": "twitter-macos.png",
+          "src": "twitter-filled.png",
           "sizes": "512x512",
           "type": "image/png"
       }
@@ -11,5 +11,5 @@
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#1da1f2",
-  "background_color": "#ffffff"
+  "background_color": "transparent"
 }
