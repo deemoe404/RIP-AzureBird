@@ -10,3 +10,5 @@ Like a fleeting dream, the Blue Bird has now taken its final flight to a realm b
 Let us not mourn the passing of the Blue Bird but instead celebrate the life it lived and the love it brought. May its wings guide us through moments of sorrow, reminding us to cherish every fleeting moment and to find solace in the simple wonders of nature.
 
 Farewell, dear Blue Bird, your vibrant soul will forever be missed, but your legacy of joy and inspiration will live on in our hearts. May you find eternal peace in the skies above, and may your memory forever soar in the winds of time.
+
+![image](assets/guide.png)
