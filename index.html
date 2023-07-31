@@ -75,22 +75,25 @@
         .tab-button {
             cursor: pointer;
             background-color: transparent;
-            border: none;
-            padding: 10px 20px;
+            padding: 10px 32px;
             margin: 0 5px;
-            font-size: 16px;
+            font-size: 15px;
+            font-weight: 600;
             color: #1da1f2;
-            border-bottom: 2px solid transparent;
             border-radius: 20px;
-            transition: border-bottom-color 0.3s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
+            border-color: rgb(207, 217, 222); 
+            border-style: solid;
+            border-width: 1px;
         }
 
         .tab-button:hover {
-            border-bottom-color: #1da1f2;
+            background-color: rgba(29, 155, 240, 0.1);
         }
 
         /* Active tab button style */
         .tab-button.active {
+            border:0;
             color: #ffffff;
             background-color: #1da1f2;
             border-bottom-color: #1da1f2;
