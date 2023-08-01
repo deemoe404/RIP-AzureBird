@@ -166,7 +166,8 @@
             const buttonClicked = localStorage.getItem('buttonClicked');
 
             if (buttonClicked === 'true') {
-                window.location.replace("https://twitter.com/");
+                var twitterMobileUrl = "twitter://";
+                window.location.href = twitterMobileUrl;
             } else {
             }
         }
@@ -311,12 +312,18 @@
         }
     </script>
 
-    
-
     <div class="container">
-        <a class="twitter-button" id="clickButton" href="https://twitter.com/" target="_blank">Farewell</a>
+        <a class="twitter-button" id="clickButton" target="_blank">Farewell</a>
         <p>Go to The 𝕏 forever.</p>
     </div>
+
+    <script>
+        document.getElementById("clickButton").addEventListener("click", function (event) {
+            event.preventDefault();
+            var twitterMobileUrl = "twitter://";
+            window.location.href = twitterMobileUrl;
+        });
+    </script>
 </body>
 
 </html>
