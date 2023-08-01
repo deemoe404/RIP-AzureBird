@@ -44,6 +44,12 @@
             margin-bottom: 15px;
         }
 
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
         .blue-bird-image {
             max-width: 100%;
             display: block;
@@ -144,6 +150,27 @@
 
 <body>
     <script>
+        function onButtonClick() {
+            localStorage.setItem('buttonClicked', 'true');
+            updateButtonClickStatus();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const clickButton = document.getElementById('clickButton');
+            clickButton.addEventListener('click', onButtonClick);
+
+            updateButtonClickStatus();
+        });
+
+        function updateButtonClickStatus() {
+            const buttonClicked = localStorage.getItem('buttonClicked');
+
+            if (buttonClicked === 'true') {
+                window.location.replace("https://twitter.com/");
+            } else {
+            }
+        }
+
         function createEmoji() {
             const emoji = document.createElement("div");
             emoji.textContent = "🌸";
@@ -284,7 +311,12 @@
         }
     </script>
 
-    <a class="twitter-button" href="https://twitter.com/" target="_blank">The 𝕏</a>
+    
+
+    <div class="container">
+        <a class="twitter-button" id="clickButton" href="https://twitter.com/" target="_blank">Farewell</a>
+        <p>Go to The 𝕏 forever.</p>
+    </div>
 </body>
 
 </html>
