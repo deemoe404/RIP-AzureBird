@@ -2,7 +2,7 @@
 
 This PWA app will grace your home screen with a solemn Twitter icon, and as you bid farewell, clicking the mournful button, this emblem shall forever lead you to the realm of 𝕏 app (an installed client is needed).
 
-![image](assets/guide.png)
+![image](assets/example.png)
 
 ---
 
