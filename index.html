@@ -145,10 +145,48 @@
                 opacity: 1;
             }
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-btn {
+            float: right;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="custom-content">
+                <h2>What happen next?</h2>
+                <p>This PWA app will grace your home screen with a solemn Twitter icon, and as you bid farewell, clicking the mournful button, this emblem shall forever lead you to the realm of 𝕏 app (an installed client is needed).</p>
+                <a class="twitter-button" id="clickButton" target="_blank">Farewell, azure bird.</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         function onButtonClick() {
             localStorage.setItem('buttonClicked', 'true');
@@ -313,9 +351,14 @@
     </script>
 
     <div class="container">
-        <a class="twitter-button" id="clickButton" target="_blank">Farewell</a>
+        <button class="twitter-button" onclick="openModal()">Farewell</button>
         <p>Go to The 𝕏 forever.</p>
     </div>
+
+    <hr>
+    <p style="text-align: center;">Thanks for playing my game.</p>
+    <p style="text-align: center;">Follow this project on <a
+            href="https://github.com/phyllali/RIP-AzureBird">github</a>.</p>
 
     <script>
         document.getElementById("clickButton").addEventListener("click", function (event) {
@@ -323,6 +366,29 @@
             var twitterMobileUrl = "twitter://";
             window.location.href = twitterMobileUrl;
         });
+
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            setTimeout(function () {
+                modal.style.opacity = "1";
+            }, 10);
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.opacity = "0";
+            setTimeout(function () {
+                modal.style.display = "none";
+            }, 300);
+        }
+
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        };
     </script>
 </body>
 
